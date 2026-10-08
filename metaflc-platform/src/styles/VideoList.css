@@ -1,0 +1,268 @@
+/* 悬浮视频列表容器 */
+.video-floating-container {
+  position: absolute;
+  bottom: 70px; /* 位于一级菜单按钮上方，留出菜单按钮高度 */
+  left: 0;
+  right: 0;
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  background-color: rgba(0, 0, 0, 0.9); /* 加深背景色，提高可见性 */
+  backdrop-filter: blur(10px); /* 增加背景模糊效果 */
+  border-radius: 10px 10px 0 0; /* 顶部圆角 */
+  padding: 15px;
+  z-index: 1000;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.8); /* 增加顶部阴影 */
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+  max-height: 70vh; /* 增加最大高度，确保所有内容可见 */
+  overflow: visible; /* 允许内容溢出 */
+}
+
+/* 悬浮列表头部 */
+.video-floating-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.video-floating-title {
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  margin: 0;
+}
+
+.video-floating-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.video-floating-close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 横排滚动容器 */
+.video-floating-scroll {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  width: 100%;
+}
+
+/* 完全隐藏滚动条 */
+.video-floating-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* 悬浮视频卡片 */
+.video-floating-card {
+  flex: 0 0 220px; /* 固定视频卡宽度，确保可以完整显示剧照和简介 */
+  background-color: rgba(30, 30, 30, 0.98); /* 深灰色背景，提高内容对比度 */
+  border-radius: 10px;
+  overflow: hidden; /* 隐藏溢出内容，确保卡片美观 */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* 初始阴影，提高立体感 */
+  margin: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 380px; /* 增加最小高度，确保内容不会被截断 */
+  width: 220px; /* 明确设置宽度，确保尺寸一致 */
+}
+
+.video-floating-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* 视频缩略图容器 */
+.video-floating-thumbnail-container {
+  position: relative;
+  width: 100%;
+  padding-top: 178%; /* 16:9 aspect ratio，确保剧照完整显示 */
+  overflow: hidden;
+  background-color: #000; /* 黑色背景，确保视频预览图清晰 */
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.video-floating-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 覆盖整个容器，确保图片充满空间 */
+  transition: transform 0.3s ease;
+  min-height: 100%; /* 确保图片至少占满容器高度 */
+  display: block;
+}
+
+.video-floating-card:hover .video-floating-thumbnail {
+  transform: scale(1.1);
+}
+
+/* 视频时长 */
+.video-floating-duration {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+/* 视频信息 */
+.video-floating-info {
+  padding: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-floating-title-small {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+  height: auto;
+  min-height: 40px;
+}
+
+/* 视频元数据 - 主信息 */
+.video-floating-meta-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+/* 视频元数据 */
+.video-floating-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.video-floating-year {
+  color: #cccccc;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.video-floating-rating {
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.video-floating-category {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 9px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* 视频简介 */
+.video-floating-description {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px; /* 增大字体大小，提高可读性 */
+  line-height: 1.4;
+  margin: 8px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* 显示4行，增加显示内容 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: auto;
+  flex: 1;
+}
+
+/* 视频元数据 */
+.video-floating-view-count, .video-floating-likes {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* 加载状态 */
+.loading {
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* 错误状态 */
+.error {
+  text-align: center;
+  padding: 20px;
+  color: #ff6b6b;
+  font-size: 14px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .video-floating-container {
+    bottom: 60px;
+    width: 95%;
+    padding: 12px;
+  }
+  
+  .video-floating-card {
+    flex: 0 0 160px;
+  }
+  
+  .video-floating-title-small {
+    font-size: 12px;
+    height: 32px;
+    line-height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-floating-card {
+    flex: 0 0 140px;
+  }
+  
+  .video-floating-scroll {
+    gap: 10px;
+  }
+}

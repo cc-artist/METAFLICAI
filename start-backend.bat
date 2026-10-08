@@ -1,0 +1,16 @@
+@echo off
+REM 后端服务启动脚本
+
+echo 启动 METAFLIC 后端服务...
+
+echo 1. 切换到后端目录...
+cd metaflc-backend
+
+echo 2. 编译 TypeScript 文件...
+tsc
+
+echo 3. 运行编译后的 JavaScript 文件...
+node dist/index.js
+
+echo 后端服务已启动，按任意键退出...
+pause > nul

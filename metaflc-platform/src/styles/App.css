@@ -1,0 +1,166 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: transparent;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Main app container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top left header with LOGO and search */
+.top-left-header {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  z-index: 200;
+}
+
+/* Logo styles */
+.logo {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Search container */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 8px 16px;
+  backdrop-filter: blur(5px);
+}
+
+/* Search input */
+.search-input {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  width: 200px;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Search button */
+.search-button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.search-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Player container with 9:16 aspect ratio */
+.player-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Navigation container at the bottom */
+.navigation-container {
+  background-color: transparent;
+  backdrop-filter: none;
+  border: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+/* Content container for video list */
+.content-container {
+  flex: 1;
+  overflow-y: auto;
+  background-color: transparent;
+  position: relative;
+}
+
+/* 9:16 aspect ratio for player */
+@media (min-aspect-ratio: 9/16) {
+  .player-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+  
+  .app-container {
+    flex-direction: column;
+  }
+  
+  .navigation-container {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: none;
+  }
+  
+  .content-container {
+    width: 100%;
+    max-width: none;
+    background-color: transparent;
+  }
+}
+
+@media (max-aspect-ratio: 9/16) {
+  .player-container {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .app-container {
+    flex-direction: column;
+  }
+  
+  .content-container {
+    width: 100%;
+    height: auto;
+    max-height: none;
+  }
+}

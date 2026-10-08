@@ -1,0 +1,79 @@
+.sub-menu {
+  background-color: transparent;
+  backdrop-filter: none;
+  border: none;
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  z-index: 90;
+}
+
+.sub-menu-scroll {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  height: 100%;
+  align-items: center;
+}
+
+.sub-menu-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.sub-menu-button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+.sub-menu-button:hover {
+  background: linear-gradient(135deg, rgba(100, 200, 255, 0.2), rgba(200, 100, 255, 0.2));
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(100, 200, 255, 0.3);
+  border-color: rgba(100, 200, 255, 0.3);
+}
+
+.sub-menu-button:active {
+  transform: translateY(0);
+}
+
+/* Low saturation dopamine colors for different tabs */
+/* These will be applied dynamically based on activeTab in a real app */
+.sub-menu[data-tab="videos"] .sub-menu-button:hover {
+  background: linear-gradient(135deg, rgba(100, 200, 255, 0.2), rgba(150, 150, 255, 0.2));
+  box-shadow: 0 4px 12px rgba(100, 200, 255, 0.3);
+  border-color: rgba(100, 200, 255, 0.3);
+}
+
+.sub-menu[data-tab="companions"] .sub-menu-button:hover {
+  background: linear-gradient(135deg, rgba(255, 150, 100, 0.2), rgba(255, 200, 100, 0.2));
+  box-shadow: 0 4px 12px rgba(255, 150, 100, 0.3);
+  border-color: rgba(255, 150, 100, 0.3);
+}
+
+.sub-menu[data-tab="ai-viewing"] .sub-menu-button:hover {
+  background: linear-gradient(135deg, rgba(150, 255, 100, 0.2), rgba(100, 255, 150, 0.2));
+  box-shadow: 0 4px 12px rgba(150, 255, 100, 0.3);
+  border-color: rgba(150, 255, 100, 0.3);
+}
+
+.sub-menu[data-tab="playlists"] .sub-menu-button:hover {
+  background: linear-gradient(135deg, rgba(255, 100, 200, 0.2), rgba(200, 100, 255, 0.2));
+  box-shadow: 0 4px 12px rgba(255, 100, 200, 0.3);
+  border-color: rgba(255, 100, 200, 0.3);
+}

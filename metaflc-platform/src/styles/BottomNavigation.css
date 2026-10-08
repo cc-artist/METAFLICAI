@@ -1,0 +1,98 @@
+.bottom-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  height: 60px;
+  background-color: transparent;
+  backdrop-filter: none;
+  border: none;
+  position: relative;
+  z-index: 100;
+}
+
+.nav-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  min-width: 70px;
+}
+
+.nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.nav-button.active {
+  background: linear-gradient(135deg, rgba(100, 200, 255, 0.3), rgba(200, 100, 255, 0.3));
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(100, 200, 255, 0.3);
+}
+
+.nav-icon {
+  font-size: 24px;
+  margin-bottom: 4px;
+  transition: transform 0.2s ease;
+}
+
+.nav-button:hover .nav-icon {
+  transform: scale(1.1);
+}
+
+.nav-button.active .nav-icon {
+  transform: scale(1.2);
+  text-shadow: 0 0 10px rgba(100, 200, 255, 0.7);
+}
+
+.nav-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Low saturation dopamine colors */
+.nav-button:nth-child(1):active {
+  background: linear-gradient(135deg, rgba(100, 200, 255, 0.3), rgba(150, 150, 255, 0.3));
+  box-shadow: 0 4px 12px rgba(100, 200, 255, 0.3);
+}
+
+.nav-button:nth-child(2):active {
+  background: linear-gradient(135deg, rgba(255, 150, 100, 0.3), rgba(255, 200, 100, 0.3));
+  box-shadow: 0 4px 12px rgba(255, 150, 100, 0.3);
+}
+
+.nav-button:nth-child(3):active {
+  background: linear-gradient(135deg, rgba(150, 255, 100, 0.3), rgba(100, 255, 150, 0.3));
+  box-shadow: 0 4px 12px rgba(150, 255, 100, 0.3);
+}
+
+.nav-button:nth-child(4):active {
+  background: linear-gradient(135deg, rgba(255, 100, 200, 0.3), rgba(200, 100, 255, 0.3));
+  box-shadow: 0 4px 12px rgba(255, 100, 200, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 375px) {
+  .nav-button {
+    min-width: 60px;
+    padding: 6px 8px;
+  }
+  
+  .nav-icon {
+    font-size: 20px;
+  }
+  
+  .nav-label {
+    font-size: 10px;
+  }
+}
