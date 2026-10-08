@@ -19,7 +19,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Initialize video data in memory
+// Initialize video data
 initializeVideos();
 
 // Routes
@@ -36,13 +36,18 @@ app.get('/health', (req, res) => {
   });
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`📡 API available at http://localhost:${PORT}${API_PREFIX}`);
-  console.log(`📺 已初始化公共领域视频资源`);
-  
-  // 启动自动爬虫，每30分钟运行一次
-  console.log('⏰ 启动自动爬虫服务...');
-  startAutoCrawl(30 * 60 * 1000); // 30分钟
-});
+// Start server only when not in Vercel serverless environment
+if (process.env.VERCEL !== '1') {
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+    console.log(`📡 API available at http://localhost:${PORT}${API_PREFIX}`);
+    console.log(`📺 已初始化公共领域视频资源`);
+    
+    // 启动自动爬虫，每30分钟运行一次
+    console.log('⏰ 启动自动爬虫服务...');
+    startAutoCrawl(30 * 60 * 1000); // 30分钟
+  });
+}
+
+// Export app for Vercel serverless
+export default app;
