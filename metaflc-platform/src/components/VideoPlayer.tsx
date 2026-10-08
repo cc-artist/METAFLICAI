@@ -280,8 +280,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ video }) => {
         className="video-element"
         onClick={togglePlay}
         playsInline
-        controls={true} // 显示浏览器默认控制栏
-        volume={volume}
+        controls={true}
         src={currentVideoUrl}
         onError={(e) => {
           console.error('视频加载失败:', e);
